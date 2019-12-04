@@ -32,8 +32,9 @@ def api_welcome():
 @app.route('/soma', methods = ['GET', 'POST'])
 def api_addition():
 	content = request.get_json()
-	print("A soma é: ".format(soma))
-	#return str(soma)
+	
+	print("A soma é:{} ".format(content['a']+content['b']))
+	return jsonify({"soma":content['a']+content['b']})
 
 @app.route('/mult', methods = ['GET', 'POST'])
 def api_multiplication():
